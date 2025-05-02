@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlantsScript
+public class PlantsScript : MonoBehaviour
 {
     public int PlantsType;
 

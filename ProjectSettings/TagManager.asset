@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PlantsArea
   - ZombiesArea
+  - moneyCount
+  - menuUi
+  - Zombie
   layers:
   - Default
   - TransparentFX
