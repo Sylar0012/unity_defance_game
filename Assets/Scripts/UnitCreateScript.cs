@@ -10,11 +10,11 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     
     // 생성한 Prefab을 저장할 변수
     private GameObject _plant;
-    private Camera mainCamera;
+    private Camera _mainCamera;
 
     private void Start()
     {
-        mainCamera = Camera.main;
+        _mainCamera = Camera.main;
     }
     
     private void Update()
@@ -40,7 +40,7 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     {
         if (_plant != null)
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
 
             if (groundPlane.Raycast(ray, out float enter))
