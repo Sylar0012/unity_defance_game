@@ -11,6 +11,8 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     // 생성한 Prefab을 저장할 변수
     private GameObject _plant;
     private Camera _mainCamera;
+    private Ray _ray;
+    private Plane _groundPlane;
 
     private void Start()
     {
@@ -22,7 +24,6 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (_plant && Input.GetKeyDown(KeyCode.Escape))
         {
             EndDrag();
-            Debug.Log("드래그 취소");
         }
     }
     
@@ -32,7 +33,6 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         {
             _isDragging = true;    
             _plant = Instantiate(selectedPlant);
-            Debug.Log("드래그 시작 - 프리팹 생성: " + _plant.name);
         }
     }
 
@@ -40,12 +40,12 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     {
         if (_plant != null)
         {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            _ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            _groundPlane = new Plane(Vector3.up, Vector3.zero);
 
-            if (groundPlane.Raycast(ray, out float enter))
+            if (_groundPlane.Raycast(_ray, out float enter))
             {
-                Vector3 hitPoint = ray.GetPoint(enter);
+                Vector3 hitPoint = _ray.GetPoint(enter);
                 _plant.transform.position = hitPoint;
             }
         }
@@ -54,8 +54,16 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (Physics.Raycast(_ray, out RaycastHit hit))
+        {
+            var target = hit.collider.GetComponent<PlantsAreaScript>();
+            if (target != null)
+            {
+                target.CreatePlants(_plant, plantsType);
+            }
+        }
+        
         EndDrag();
-        Debug.Log("드래그 끝");
     }
     
     private void EndDrag()
