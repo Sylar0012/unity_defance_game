@@ -6,9 +6,8 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public GameObject selectedPlant;
     public int plantsType;
     public int price;
-    private bool _isDragging = false;
     
-    // 생성한 Prefab을 저장할 변수
+    private bool _isDragging = false;
     private GameObject _plant;
     private Camera _mainCamera;
     private Ray _ray;

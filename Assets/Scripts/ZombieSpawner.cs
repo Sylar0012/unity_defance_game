@@ -5,7 +5,6 @@ using Random = UnityEngine.Random;
 public class ZombieSpawner : MonoBehaviour
 {
    public Transform[] spawnPoints;
-   
    public GameObject[] zombies;
 
    private void Start()
