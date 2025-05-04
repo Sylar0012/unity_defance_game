@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public GameObject[] plants;
+    public GameObject selectedPlant;
     public int plantsType;
     public int price;
     private bool _isDragging = false;
@@ -19,16 +19,10 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     
     private void Update()
     {
-        // ESC 키로 드래그 취소
         if (_plant && Input.GetKeyDown(KeyCode.Escape))
         {
-            CancelDrag();
-        }
-
-        // 마우스 우클릭으로 드래그 취소
-        if (_plant && Input.GetMouseButtonDown(1)) // 1 == 오른쪽 클릭
-        {
-            CancelDrag();
+            EndDrag();
+            Debug.Log("드래그 취소");
         }
     }
     
@@ -37,7 +31,7 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (!_isDragging)
         {
             _isDragging = true;    
-            _plant = Instantiate(plants[plantsType]);
+            _plant = Instantiate(selectedPlant);
             Debug.Log("드래그 시작 - 프리팹 생성: " + _plant.name);
         }
     }
@@ -60,15 +54,13 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _isDragging = false;
-        Destroy(_plant);
-        _plant = null;
-        Debug.Log("드래그 끝 - 위치 확정");
+        EndDrag();
+        Debug.Log("드래그 끝");
     }
     
-    private void CancelDrag()
+    private void EndDrag()
     {
-        Debug.Log("드래그 취소");
+        _isDragging = false;
         Destroy(_plant);
         _plant = null;
     }
