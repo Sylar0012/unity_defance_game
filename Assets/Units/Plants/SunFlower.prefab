@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2566504389682925958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2566504389682925958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a61e9521f67dc4369bfc21ed987d8371, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bf99674e1854e1192d0ccfdac786f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantsType: 4
+  plantsType: 0

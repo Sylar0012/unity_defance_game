@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3362329892709349228}
   - component: {fileID: 1288234005705768801}
   - component: {fileID: 6651400760250788978}
+  - component: {fileID: 1838169701223033255}
   m_Layer: 0
   m_Name: DoubleShotPlant
   m_TagString: Plant
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7103052076604042324}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +119,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 7103052076604042324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a61e9521f67dc4369bfc21ed987d8371, type: 3}
+  m_Script: {fileID: 11500000, guid: c9531e96e9294a84860fbf22258fd671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantsType: 2
+  bulletPrefab: {fileID: 437501350692692994, guid: bcf96d220acff468c9101841433b4958, type: 3}
+  fireInterval: 0.5
+--- !u!65 &1838169701223033255
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7103052076604042324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 5}

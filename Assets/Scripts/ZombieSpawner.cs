@@ -9,13 +9,13 @@ public class ZombieSpawner : MonoBehaviour
 
    private void Start()
    {
-      InvokeRepeating("SpawnZombie", 0, 3);
+      InvokeRepeating("SpawnZombie", 0, 5);
    }
 
    void SpawnZombie()
    {
       int spawnZombie = Random.Range(0, 3);
       int spawnPoint = Random.Range(0, spawnPoints.Length);
-      GameObject myZombie = Instantiate(zombies[spawnZombie], spawnPoints[spawnPoint].position, Quaternion.identity);
+      GameObject myZombie = Instantiate(zombies[spawnZombie], new Vector3( spawnPoints[spawnPoint].position.x, 3.5f,  spawnPoints[spawnPoint].position.z), Quaternion.identity);
    }
 }
