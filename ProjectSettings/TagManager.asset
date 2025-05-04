@@ -9,6 +9,8 @@ TagManager:
   - moneyCount
   - menuUi
   - Zombie
+  - Plant
+  - CreatePlantButton
   layers:
   - Default
   - TransparentFX
