@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -32,6 +33,7 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         {
             _isDragging = true;    
             _plant = Instantiate(selectedPlant);
+            _plant.GetComponent<ShooterPlantsScript>().isCanFire = false;
         }
     }
 
@@ -58,6 +60,7 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             var target = hit.collider.GetComponent<PlantsAreaScript>();
             if (target != null)
             {
+                _plant.GetComponent<ShooterPlantsScript>().isCanFire = true;
                 target.CreatePlants(_plant, plantsType);
             }
         }
