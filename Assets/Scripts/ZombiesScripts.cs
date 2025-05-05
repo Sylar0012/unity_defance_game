@@ -22,4 +22,13 @@ public class ZombiesScripts : MonoBehaviour
         Vector3 vec = new Vector3(0, 0, _speed);
         _rigidbody.linearVelocity = vec;
     }
+
+    public void Hit(int damage)
+    {
+        _health = _health - damage;
+        if (_health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

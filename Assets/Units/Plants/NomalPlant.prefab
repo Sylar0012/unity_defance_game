@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 437501350692692994, guid: bcf96d220acff468c9101841433b4958, type: 3}
   fireInterval: 2
+  isCanFire: 1
 --- !u!65 &-8267345119883531156
 BoxCollider:
   m_ObjectHideFlags: 0
