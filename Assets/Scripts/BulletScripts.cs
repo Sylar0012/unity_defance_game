@@ -18,7 +18,6 @@ public class BulletScripts : MonoBehaviour
         {
             Destroy(gameObject);
             other.gameObject.GetComponent<ZombiesScripts>().Hit(_damage);
-
         } 
     }
 }

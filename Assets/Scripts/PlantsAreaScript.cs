@@ -10,7 +10,7 @@ public class PlantsAreaScript : MonoBehaviour
         {
             if (plantType < 4)
             {
-                _plant = Instantiate(newPlant, new Vector3(transform.position.x, 2f, transform.position.z), Quaternion.identity);
+                _plant = Instantiate(newPlant, new Vector3(transform.position.x, 1f, transform.position.z), Quaternion.identity);
             }
         }
         else
