@@ -33,6 +33,8 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         {
             _isDragging = true;    
             _plant = Instantiate(selectedPlant);
+            _plant.GetComponent<Collider>().isTrigger = true;
+            
             if (plantsType is 0 or 1)
             {
                 _plant.GetComponent<ShooterPlantsScript>().isCanFire = false;
@@ -62,13 +64,15 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         if (Physics.Raycast(_ray, out RaycastHit hit))
         {
             var target = hit.collider.GetComponent<PlantsAreaScript>();
-            Debug.Log("target :: " + target);
             if (target != null)
             {
                 if (plantsType is 0 or 1)
                 {
                     _plant.GetComponent<ShooterPlantsScript>().isCanFire = true;
                 }
+
+                _plant.GetComponent<Collider>().isTrigger = false;
+                
                 target.CreatePlants(_plant, plantsType);
             }
         }

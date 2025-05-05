@@ -16,6 +16,6 @@ public class ZombieSpawner : MonoBehaviour
    {
       int spawnZombie = Random.Range(0, 3);
       int spawnPoint = Random.Range(0, spawnPoints.Length);
-      GameObject myZombie = Instantiate(zombies[spawnZombie], new Vector3( spawnPoints[spawnPoint].position.x, 3.5f,  spawnPoints[spawnPoint].position.z), Quaternion.identity);
+      GameObject myZombie = Instantiate(zombies[spawnZombie], new Vector3( spawnPoints[spawnPoint].position.x, 2.5f,  spawnPoints[spawnPoint].position.z), Quaternion.identity);
    }
 }

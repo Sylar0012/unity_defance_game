@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 public class ShooterPlantsScript : MonoBehaviour
@@ -10,14 +10,14 @@ public class ShooterPlantsScript : MonoBehaviour
     private int _health = 10;
     private float _timer;
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.CompareTag("Zombie") && isCanFire)
+        if (other.gameObject.CompareTag("Zombie") && isCanFire)
         {
             _timer += Time.deltaTime;
             if (_timer >= fireInterval)
             {
-                GameObject bullet = Instantiate(bulletPrefab, transform.position + Vector3.forward * 1f, Quaternion.identity);
+                GameObject bullet = Instantiate(bulletPrefab, transform.position + Vector3.forward * 1.5f, Quaternion.identity);
                 _timer = 0f;
             }
             
