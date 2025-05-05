@@ -38,7 +38,6 @@ public class UnitCreateScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
             if (plantsType is 0 or 1)
             {
                 _plant.GetComponent<ShooterPlantsScript>().isCanFire = false;
-                
             }
         }
     }

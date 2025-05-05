@@ -17,7 +17,6 @@ public class PlantsAreaScript : MonoBehaviour
         {
             if (plantType == 4)
             {
-                Debug.Log("유닛 제거함 ㅇㅇ");
                 Destroy(_plant);
                 _plant = null;
                     
